@@ -1,6 +1,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/gcp-praticals/react-app:latest', '.']  # Added ':latest' tag
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/gcp-praticals/react-app:latest', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/gcp-praticals/react-app:latest']  # Corrected repository and tag
-
+    args: ['push', 'us-central1-docker.pkg.dev/gcp-praticals/react-app:latest']  
+   
