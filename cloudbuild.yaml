@@ -1,11 +1,11 @@
 steps:
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['install']
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'build']
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['auth', 'configure-docker']
+  # - name: 'gcr.io/cloud-builders/npm'
+  #   args: ['install']
+  # - name: 'gcr.io/cloud-builders/npm'
+  #   args: ['run', 'build']
+  # - name: 'gcr.io/cloud-builders/gcloud'
+  #   args: ['auth', 'configure-docker']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/react-app-repo/react-app', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/gcp-praticals/react-app-repo/react-app', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/react-app-repo/react-app']
+    args: ['push', 'us-central1-docker.pkg.dev/gcp-praticals/react-app-repo/react-app']
