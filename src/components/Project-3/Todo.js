@@ -17,7 +17,7 @@ function Todo() {
 
 
   useEffect(() => {
-    document.title = `Project-3-Todo-List`;
+    document.title = `New 😊 Todo-List`;
   });
 
   const addItem = () => {
