@@ -1,14 +1,6 @@
 steps:
-  # - name: 'gcr.io/cloud-builders/npm'
-  #   args: ['install']
-  # - name: 'gcr.io/cloud-builders/npm'
-  #   args: ['run', 'build']
-  # - name: 'gcr.io/cloud-builders/gcloud'
-  #   args: ['auth', 'configure-docker']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/gcp-praticals/react-app', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/gcp-praticals/react-app:latest', '.']  # Added ':latest' tag
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/gcp-praticals/react-app/react-app']
-timeout: 1200s
-images:
-  - 'us-central1-docker.pkg.dev/gcp-praticals/react-app'
+    args: ['push', 'us-central1-docker.pkg.dev/gcp-praticals/react-app:latest']  # Corrected repository and tag
+
