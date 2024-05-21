@@ -3,7 +3,4 @@ steps:
     args: ['build', '-t', 'us-central1-docker.pkg.dev/gcp-praticals/react-app:latest', '.']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/gcp-praticals/react-app:latest']
-timeout: 1200s
-images:
-  - 'us-central1-docker.pkg.dev/gcp-praticals/react-app:latest'
 
