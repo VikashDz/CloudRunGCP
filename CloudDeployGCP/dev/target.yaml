@@ -5,14 +5,4 @@ metadata:
   labels: {}
 requireApproval: false
 run:
-  location: projects/gcp-praticals/locations/us-central1
-
----
-apiVersion: deploy.cloud.google.com/v1
-kind: Target
-metadata:
-  name: react-app-prod
-  labels: {}
-requireApproval: true
-run:
-  location: projects/gcp-praticals/locations/us-central1
+  location: us-central1

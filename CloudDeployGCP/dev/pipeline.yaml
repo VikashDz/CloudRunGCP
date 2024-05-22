@@ -10,6 +10,6 @@ serialPipeline:
     - targetId: react-app-dev
       profiles:
         - dev
-    - targetId: react-app-prod
-      profiles:
-        - prod
+      config:
+        region: us-central1  
+    
