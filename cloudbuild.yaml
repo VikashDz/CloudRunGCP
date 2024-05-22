@@ -21,15 +21,14 @@ steps:
       - '--allow-unauthenticated'
 
 
-# We Have To Work On This Part.
-
-  #  # Trigger Cloud Deploy
-  # - name: 'gcr.io/cloud-builders/gcloud'
-  #   args:
-  #     - 'deploy'
-  #     - 'apply'
-  #     - '--file=CloudDeployGCP/dev/pipeline.yaml'
-  #     - '--file=CloudDeployGCP/dev/target.yaml'
-  #     - '--region=us-central1'  # Specify the region as part of the deployment command
+   # We Have To Work On This Part.
+   # Trigger Cloud Deploy
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'deploy'
+      - 'apply'
+      - '--file=CloudDeployGCP/dev/pipeline.yaml'
+      - '--file=CloudDeployGCP/dev/target.yaml'
+      - '--region=us-central1'  # Specify the region as part of the deployment command
     
 
