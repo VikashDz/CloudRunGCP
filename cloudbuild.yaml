@@ -5,7 +5,7 @@
 # #  Push
 #   - name: 'gcr.io/cloud-builders/docker'
 #     args: ['push', 'us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest']
-# #  Deploy to Cloud Run
+# #  Deploy to Cloud Run=
 
 # #  Trigger to Cloud Deploy
 #   - name: 'google/cloud-sdk:latest'
