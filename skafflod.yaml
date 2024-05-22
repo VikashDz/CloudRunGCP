@@ -1,7 +1,7 @@
 apiVersion: skaffold/v4beta7
 kind: Config
 metadata: 
-  name: react-app
+  name: react-app-prod
 profiles:
 - name: dev
   manifests:
