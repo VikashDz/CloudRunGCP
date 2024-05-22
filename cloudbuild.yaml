@@ -55,22 +55,22 @@ steps:
       - '--region=us-central1'
       - '--allow-unauthenticated'
 
-  # Trigger Cloud Deploy
+  # Trigger Cloud Deploy with a Static Release Name
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'deploy'
       - 'releases'
       - 'create'
-      - 'release-$_DATE_TIME'
+      - 'static-release-name'  # Use a static name or change as needed
       - '--delivery-pipeline=your-pipeline-name'
       - '--region=us-central1'
       - '--images=web=us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest'
-      - '--annotations=commitSha=$(COMMIT_SHA)'
-      - '--annotations=buildId=$(BUILD_ID)'
+      - '--annotations=commitSha=$COMMIT_SHA'
+      - '--annotations=buildId=$BUILD_ID'
 
 options:
   logging: CLOUD_LOGGING_ONLY
 substitutions:
-  _DATE_TIME: $(date +%Y%m%d-%H%M%S)
   _COMMIT_SHA: $BUILD_ID
+
 
