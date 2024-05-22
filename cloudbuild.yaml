@@ -44,28 +44,28 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest']
 
-  # Deploy to Cloud Run (if needed)
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      - 'run'
-      - 'deploy'
-      - 'react-app'
-      - '--image=us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest'
-      - '--platform=managed'
-      - '--region=us-central1'
-      - '--allow-unauthenticated'
-    waitFor: ['-']
+  # # Deploy to Cloud Run (if needed)
+  # - name: 'gcr.io/cloud-builders/gcloud'
+  #   args:
+  #     - 'run'
+  #     - 'deploy'
+  #     - 'react-app'
+  #     - '--image=us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest'
+  #     - '--platform=managed'
+  #     - '--region=us-central1'
+  #     - '--allow-unauthenticated'
+  #   waitFor: ['-']
 
-  # Trigger Cloud Deploy
+  # Trigger Cloud Deploy with a Unique Release Name
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'deploy'
       - 'releases'
       - 'create'
-      - 'static-release-name'  # Use a static name or change as needed
+      - 'release-$_COMMIT_SHA'  
       - '--delivery-pipeline=dev'
       - '--region=us-central1'
-      - '--skaffold-file=skafflod.yaml'
+      - '--skaffold-file=skaffold.yaml'
       - '--images=web=us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest'
       - '--annotations=commitSha=$COMMIT_SHA'
       - '--annotations=buildId=$BUILD_ID'
@@ -73,6 +73,8 @@ steps:
 options:
   logging: CLOUD_LOGGING_ONLY
 substitutions:
-  _COMMIT_SHA: $BUILD_ID
+  _COMMIT_SHA: $COMMIT_SHA
+  _BUILD_ID: $BUILD_ID
+
 
 
