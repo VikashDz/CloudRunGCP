@@ -30,5 +30,8 @@ steps:
       - '--file=CloudDeployGCP/dev/pipeline.yaml'
       - '--file=CloudDeployGCP/dev/target.yaml'
       - '--region=us-central1'  # Specify the region as part of the deployment command
+
+options:
+  logging: CLOUD_LOGGING_ONLY
     
 
