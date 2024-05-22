@@ -3,13 +3,9 @@ kind: Config
 metadata: 
   name: react-app-prod
 profiles:
-- name: dev
-  manifests:
-    rawYaml:
-    - CloudDeployGCP/dev/dev.yaml
 - name: prod
   manifests:
     rawYaml:
-    - CloudDeployGCP/prod/prod.yaml
+    - CloudDeployGCP/dev/dev.yaml
 deploy:
   cloudrun: {}
