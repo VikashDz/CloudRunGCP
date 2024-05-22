@@ -45,12 +45,12 @@ steps:
       - '--region=us-central1'
       - '--allow-unauthenticated'
 
-  # Trigger Cloud Deploy
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      - 'deploy'
-      - 'apply'
-      - '--file=CloudDeployGCP/dev/pipeline.yaml'
-      - '--file=CloudDeployGCP/dev/target.yaml'
+  # # Trigger Cloud Deploy
+  # - name: 'gcr.io/cloud-builders/gcloud'
+  #   args:
+  #     - 'deploy'
+  #     - 'apply'
+  #     - '--file=CloudDeployGCP/dev/pipeline.yaml'
+  #     - '--file=CloudDeployGCP/dev/target.yaml'
     
 
