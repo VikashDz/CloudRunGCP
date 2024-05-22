@@ -7,9 +7,9 @@ profiles:
   manifests:
     rawYaml:
     - CloudDeployGCP/dev/dev.yaml
-- name: prod
-  manifests:
-    rawYaml:
-    - CloudDeployGCP/prod/prod.yaml
+# - name: prod
+#   manifests:
+#     rawYaml:
+#     - CloudDeployGCP/prod/prod.yaml
 deploy:
   cloudrun: {}
