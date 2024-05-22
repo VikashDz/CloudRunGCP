@@ -61,7 +61,7 @@ steps:
       - 'deploy'
       - 'releases'
       - 'create'
-      - 'release-$(date +%Y%m%d-%H%M%S)'
+      - 'release-$_DATE_TIME'
       - '--delivery-pipeline=your-pipeline-name'
       - '--region=us-central1'
       - '--images=web=us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest'
@@ -70,8 +70,7 @@ steps:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-  substitutionOption: 'ALLOW_LOOSE'
 substitutions:
+  _DATE_TIME: $(date +%Y%m%d-%H%M%S)
   _COMMIT_SHA: $BUILD_ID
-
 
