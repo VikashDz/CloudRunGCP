@@ -62,7 +62,7 @@ steps:
       - 'releases'
       - 'create'
       - 'static-release-name'  # Use a static name or change as needed
-      - '--delivery-pipeline=your-pipeline-name'
+      - '--delivery-pipeline=dev'
       - '--region=us-central1'
       - '--images=web=us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest'
       - '--annotations=commitSha=$COMMIT_SHA'
