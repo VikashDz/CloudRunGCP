@@ -35,15 +35,15 @@ steps:
     args: ['push', 'us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest']
 
   # Deploy to Cloud Run
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      - 'run'
-      - 'deploy'
-      - 'react-app'
-      - '--image=us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest'
-      - '--platform=managed'
-      - '--region=us-central1'
-      - '--allow-unauthenticated'
+  # - name: 'gcr.io/cloud-builders/gcloud'
+  #   args:
+  #     - 'run'
+  #     - 'deploy'
+  #     - 'react-app'
+  #     - '--image=us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest'
+  #     - '--platform=managed'
+  #     - '--region=us-central1'
+  #     - '--allow-unauthenticated'
 
    # Trigger Cloud Deploy
   - name: 'gcr.io/cloud-builders/gcloud'
