@@ -3,17 +3,16 @@ steps:
     args: ['build', '-t', 'us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest', '.']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest']
-
   - name: 'google/cloud-sdk:latest'
-  id: Trigger Cloud Deploy
-  entrypoint: 'sh'
-  args:
-  - -xe
-  - -c
-  - |
-    gcloud config set deploy/region us-central1
-    gcloud deploy apply --file CloudDeployGCP/web/dev/pipeline.yaml
-    gcloud deploy apply --file CloudDeployGCP/web/dev/target.yaml
-    gcloud deploy releases create web-$SHORT_SHA \
-                        --delivery-pipeline=web \
-                        --skaffold-file=web.yaml
+    id: Trigger Cloud Deploy
+    entrypoint: 'sh'
+    args:
+    - -xe
+    - -c
+    - |
+      gcloud config set deploy/region us-central1
+      gcloud deploy apply --file CloudDeployGCP/web/dev/pipeline.yaml
+      gcloud deploy apply --file CloudDeployGCP/web/dev/target.yaml
+      gcloud deploy releases create web-$SHORT_SHA \
+                          --delivery-pipeline=web \
+                          --skaffold-file=web.yaml
