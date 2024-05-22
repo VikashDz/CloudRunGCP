@@ -11,8 +11,8 @@ steps:
     - -c
     - |
       gcloud config set deploy/region us-central1
-      gcloud deploy apply --file CloudDeployGCP/web/dev/pipeline.yaml
-      gcloud deploy apply --file CloudDeployGCP/web/dev/target.yaml
+      gcloud deploy apply --file CloudDeployGCP/dev/pipeline.yaml
+      gcloud deploy apply --file CloudDeployGCP/dev/target.yaml
       gcloud deploy releases create web-$SHORT_SHA \
                           --delivery-pipeline=web \
                           --skaffold-file=web.yaml
