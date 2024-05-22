@@ -1,5 +1,40 @@
 # ===================================================================================================================
 
+# steps:
+#   # Build
+#   - name: 'gcr.io/cloud-builders/docker'
+#     args: ['build', '-t', 'us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest', '.']
+
+#   # Push
+#   - name: 'gcr.io/cloud-builders/docker'
+#     args: ['push', 'us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest']
+
+#   # Deploy to Cloud Run
+#   - name: 'gcr.io/cloud-builders/gcloud'
+#     args:
+#       - 'run'
+#       - 'deploy'
+#       - 'react-app'
+#       - '--image=us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest'
+#       - '--platform=managed'
+#       - '--region=us-central1'
+#       - '--allow-unauthenticated'
+
+
+#    # We Have To Work On This Part.
+#    # Trigger Cloud Deploy
+#   - name: 'gcr.io/cloud-builders/gcloud'
+#     args:
+#       - 'deploy'
+#       - 'apply'
+#       - '--file=CloudDeployGCP/dev/pipeline.yaml'
+#       - '--file=CloudDeployGCP/dev/target.yaml'
+#       - '--region=us-central1'  
+
+# options:
+#   logging: CLOUD_LOGGING_ONLY
+
+# ===================================================================================================================
 steps:
   # Build
   - name: 'gcr.io/cloud-builders/docker'
@@ -20,18 +55,23 @@ steps:
       - '--region=us-central1'
       - '--allow-unauthenticated'
 
-
-   # We Have To Work On This Part.
-   # Trigger Cloud Deploy
+  # Trigger Cloud Deploy
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'deploy'
-      - 'apply'
-      - '--file=CloudDeployGCP/dev/pipeline.yaml'
-      - '--file=CloudDeployGCP/dev/target.yaml'
-      - '--region=us-central1'  # Specify the region as part of the deployment command
+      - 'releases'
+      - 'create'
+      - 'release-$(date +%Y%m%d-%H%M%S)'
+      - '--delivery-pipeline=your-pipeline-name'
+      - '--region=us-central1'
+      - '--images=web=us-central1-docker.pkg.dev/gcp-praticals/react-app/web:latest'
+      - '--annotations=commitSha=$(COMMIT_SHA)'
+      - '--annotations=buildId=$(BUILD_ID)'
 
 options:
   logging: CLOUD_LOGGING_ONLY
-    
+  substitutionOption: 'ALLOW_LOOSE'
+substitutions:
+  _COMMIT_SHA: $BUILD_ID
+
 
