@@ -13,7 +13,7 @@ steps:
       - 'deploy'
       - 'releases'
       - 'create'
-      - 'release-$(DATE +%Y%m%d%H%M%S)'
+      - 'release-$TIME'
       - '--delivery-pipeline=react-app-pipeline'
       - '--region=us-central1'
       - '--skaffold-file=skafflod.yaml'
