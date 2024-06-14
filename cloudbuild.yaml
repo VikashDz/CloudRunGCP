@@ -18,6 +18,8 @@ steps:
       - '--region=us-central1'
       - '--skaffold-file=skafflod.yaml'
       - '--images=web=us-central1-docker.pkg.dev/gcp-praticals/react-app-prod/web:latest'
+      - '--annotations=commitSha=$COMMIT_SHA'
+      - '--annotations=buildId=$BUILD_ID'
       
 
 options:
