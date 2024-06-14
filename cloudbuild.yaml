@@ -25,4 +25,8 @@ steps:
 options:
   logging: CLOUD_LOGGING_ONLY
 
+substitutions:
+  _COMMIT_SHA: $COMMIT_SHA
+  _BUILD_ID: $BUILD_ID
+
 
