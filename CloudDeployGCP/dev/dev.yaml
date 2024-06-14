@@ -1,9 +1,9 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: react-app-prod
+  name: react-app-dev
   annotations:
-    run.googleapis.com/description: react-app-prod
+    run.googleapis.com/description: react-app-dev
 spec:
   template:
     metadata:
@@ -11,7 +11,7 @@ spec:
         # run.googleapis.com/cloudsql-instances: ${DEV_CLOUDSQL_CONNECTION_STRING} # just for illustration
     spec:
       containers:
-        - name: react-app-prod
+        - name: react-app-dev
           image: us-central1-docker.pkg.dev/gcp-praticals/react-app-prod/web:latest
           ports:
             - name: http1
