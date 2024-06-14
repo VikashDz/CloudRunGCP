@@ -9,7 +9,6 @@ steps:
 
   # Trigger Cloud Deploy with a Unique Release Name
   - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
     args:
       - 'deploy'
       - 'releases'
