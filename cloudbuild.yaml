@@ -13,14 +13,19 @@ steps:
       - 'deploy'
       - 'releases'
       - 'create'
-      - 'release-${BUILD_ID}'
+      - 'release-$_COMMIT_SHA'
       - '--delivery-pipeline=react-app-pipeline'
       - '--region=us-central1'
       - '--skaffold-file=skafflod.yaml'
       - '--images=web=us-central1-docker.pkg.dev/gcp-praticals/react-app-prod/web:latest'
+      - '--annotations=commitSha=$COMMIT_SHA'
+      - '--annotations=buildId=$BUILD_ID'
       
 options:
   logging: CLOUD_LOGGING_ONLY
+substitutions:
+  _COMMIT_SHA: $COMMIT_SHA
+  _BUILD_ID: $BUILD_ID
 
 
 
