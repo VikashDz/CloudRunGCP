@@ -1,15 +1,15 @@
 apiVersion: deploy.cloud.google.com/v1
 kind: DeliveryPipeline
 metadata:
-  name: react-app-prod
+  name: react-app-pipeline
   labels: 
-    app: react-app-prod
+    app: react-app-pipeline
 description: Cloud Deploy Pipeline for React App
 serialPipeline:
   stages:
-    - targetId: react-app-prod
+    - targetId: react-app-pipeline-dev
       profiles:
-        - prod
+        - dev
       config:
         region: us-central1  
     
